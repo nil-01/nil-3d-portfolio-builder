@@ -6,7 +6,7 @@ import BackgroundParticles from "./BackgroundParticles";
 
 const HeroCanvas = () => {
   return (
-    <div className="canvas-container">
+    <div className="canvas-container absolute inset-0 z-0">
       <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
         <Suspense fallback={null}>
           <ambientLight intensity={0.2} />

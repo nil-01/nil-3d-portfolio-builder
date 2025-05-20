@@ -18,24 +18,24 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-portfolio-dark text-portfolio-light">
-      <Suspense fallback={<div className="fixed inset-0 flex items-center justify-center">Loading...</div>}>
-        <HeroCanvas />
-      </Suspense>
+    <div className="min-h-screen bg-portfolio-dark text-portfolio-light relative">
+      <HeroCanvas />
       
-      <Navbar />
-      
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <ExperienceSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <CertificationsSection />
-        <ContactSection />
-      </main>
-      
-      <Footer />
+      <div className="relative z-10">
+        <Navbar />
+        
+        <main>
+          <HeroSection />
+          <AboutSection />
+          <ExperienceSection />
+          <SkillsSection />
+          <ProjectsSection />
+          <CertificationsSection />
+          <ContactSection />
+        </main>
+        
+        <Footer />
+      </div>
     </div>
   );
 };

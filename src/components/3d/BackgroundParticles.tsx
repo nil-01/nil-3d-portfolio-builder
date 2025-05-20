@@ -2,7 +2,7 @@
 import { useRef, useMemo } from "react";
 import { useFrame } from "@react-three/fiber";
 import * as THREE from "three";
-import { useSpring, animated } from "@react-spring/three";
+import { useSpring } from "@react-spring/three";
 
 interface Point {
   position: [number, number, number];
@@ -52,7 +52,7 @@ const BackgroundParticles = ({ count = 500 }) => {
     return geometry;
   }, [points]);
   
-  const { opacity } = useSpring({
+  useSpring({
     from: { opacity: 0 },
     to: { opacity: 0.75 },
     config: { duration: 2000 },
@@ -66,7 +66,7 @@ const BackgroundParticles = ({ count = 500 }) => {
   });
   
   return (
-    <animated.points ref={mesh} geometry={particlesGeometry} opacity={opacity}>
+    <points ref={mesh} geometry={particlesGeometry}>
       <pointsMaterial 
         size={0.05} 
         vertexColors 
@@ -75,7 +75,7 @@ const BackgroundParticles = ({ count = 500 }) => {
         sizeAttenuation={true}
         blending={THREE.AdditiveBlending}
       />
-    </animated.points>
+    </points>
   );
 };
 

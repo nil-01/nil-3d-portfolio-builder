@@ -56,34 +56,50 @@ const ExperienceSection = () => {
   return (
     <section id="experience" className="section-padding bg-portfolio-dark/70">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold mb-10 text-center animate-float">
           Professional <span className="text-gradient">Experience</span>
         </h2>
         
-        <div className="mb-16">
+        <div className="mb-16 hidden md:block h-[350px]">
           <ExperienceTimeline3D experiences={timelineData} />
+        </div>
+        
+        <div className="md:hidden flex justify-center mb-10">
+          <div className="flex gap-4 overflow-x-auto pb-4 max-w-full">
+            {timelineData.map((exp, i) => (
+              <div 
+                key={i} 
+                className={`flex flex-col items-center p-3 rounded-lg ${exp.active ? 'bg-portfolio-primary/20' : 'bg-portfolio-secondary/10'}`}
+              >
+                <div className={`h-4 w-4 rounded-full ${exp.active ? 'bg-portfolio-primary animate-pulse-custom' : 'bg-portfolio-secondary/50'}`}></div>
+                <div className="h-10 w-0.5 bg-gradient-to-b from-portfolio-primary to-portfolio-secondary/50 my-2"></div>
+                <p className="text-xs text-portfolio-light whitespace-nowrap">{exp.date}</p>
+                <p className="text-sm font-medium text-portfolio-light whitespace-nowrap">{exp.title}</p>
+              </div>
+            ))}
+          </div>
         </div>
         
         <div className="space-y-8">
           {experiences.map((exp, index) => (
             <Card 
               key={index} 
-              className={`card-gradient border-l-4 ${index === 0 ? 'border-l-portfolio-primary' : 'border-l-portfolio-secondary/50'}`}
+              className={`dev-card card-hover-animation ${index === 0 ? 'border-l-portfolio-primary' : 'border-l-portfolio-secondary/50'}`}
             >
               <CardContent className="p-6">
                 <div className="flex flex-col md:flex-row justify-between mb-4">
                   <div>
                     <h3 className="text-xl font-bold text-portfolio-primary">{exp.title}</h3>
-                    <p className="text-portfolio-light/90">{exp.company}</p>
+                    <p className="text-content">{exp.company}</p>
                   </div>
                   
                   <div className="text-right mt-2 md:mt-0">
-                    <p className="text-portfolio-light/80">{exp.date}</p>
-                    <p className="text-portfolio-light/70">{exp.location}</p>
+                    <p className="text-content">{exp.date}</p>
+                    <p className="text-subtle">{exp.location}</p>
                   </div>
                 </div>
                 
-                <ul className="list-disc list-inside text-portfolio-light/80 mb-4 space-y-1">
+                <ul className="list-disc list-inside text-content mb-4 space-y-1">
                   {exp.description.map((item, i) => (
                     <li key={i}>{item}</li>
                   ))}
@@ -91,7 +107,7 @@ const ExperienceSection = () => {
                 
                 <div className="flex flex-wrap gap-2 mt-4">
                   {exp.skills.map((skill) => (
-                    <Badge key={skill} variant="outline" className="bg-portfolio-primary/10 text-portfolio-primary border-portfolio-primary/30">
+                    <Badge key={skill} variant="outline" className="bg-portfolio-primary/10 text-portfolio-primary border-portfolio-primary/30 hover:bg-portfolio-primary/20 transition-colors">
                       {skill}
                     </Badge>
                   ))}

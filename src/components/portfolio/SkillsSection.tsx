@@ -58,7 +58,7 @@ const SkillBar = ({ name, level, description }: { name: string; level: number; d
         <span className="text-xs text-portfolio-light/60">{description}</span>
       )}
     </div>
-    <Progress value={level} className="h-2" indicatorClassName="bg-gradient-to-r from-portfolio-primary to-portfolio-secondary" />
+    <Progress value={level} className="h-2" />
   </div>
 );
 

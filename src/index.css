@@ -6,7 +6,39 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
+  :root.light {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    
+    --primary: 263.4 70% 50.9%;
+    --primary-foreground: 210 40% 98%;
+    
+    --secondary: 291 80% 45.5%;
+    --secondary-foreground: 210 40% 98%;
+    
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    
+    --accent: 199 89% 48%;
+    --accent-foreground: 240 5.9% 10%;
+    
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 240 5.9% 10%;
+    
+    --radius: 0.5rem;
+  }
+  
+  :root.dark {
     --background: 240 10% 3.9%;
     --foreground: 0 0% 98%;
 
@@ -36,22 +68,17 @@
     --ring: 240 4.9% 83.9%;
 
     --radius: 0.5rem;
-
-    --sidebar-background: 240 10% 3.9%;
-    --sidebar-foreground: 0 0% 98%;
-    --sidebar-primary: 263.4 70% 63.9%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 0 0% 98%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 240 4.9% 83.9%;
   }
 
   * {
     @apply border-border;
   }
 
-  body {
+  .light body {
+    @apply bg-white text-slate-900;
+  }
+  
+  .dark body {
     @apply bg-portfolio-dark text-portfolio-light;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
@@ -66,19 +93,35 @@
 }
 
 @layer components {
-  .hero-gradient {
+  .light .hero-gradient {
+    @apply bg-gradient-to-br from-portfolio-primary/30 via-portfolio-secondary/20 to-portfolio-accent/25;
+  }
+  
+  .dark .hero-gradient {
     @apply bg-gradient-to-br from-portfolio-primary/50 via-portfolio-secondary/30 to-portfolio-accent/40;
   }
   
-  .text-gradient {
+  .light .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-portfolio-primary via-portfolio-secondary to-portfolio-accent;
   }
   
-  .card-gradient {
+  .dark .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-portfolio-primary via-portfolio-secondary to-portfolio-accent;
+  }
+  
+  .light .card-gradient {
+    @apply bg-gradient-to-br from-gray-50 to-gray-100;
+  }
+  
+  .dark .card-gradient {
     @apply bg-gradient-to-br from-portfolio-muted/30 to-portfolio-muted/10;
   }
 
-  .glass-panel {
+  .light .glass-panel {
+    @apply bg-white/70 backdrop-blur-sm border border-gray-200 rounded-xl shadow-lg;
+  }
+  
+  .dark .glass-panel {
     @apply bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl shadow-lg;
   }
 
@@ -93,4 +136,8 @@
 
 .text-shadow {
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.light .text-shadow {
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }

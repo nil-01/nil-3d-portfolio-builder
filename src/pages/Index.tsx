@@ -1,5 +1,6 @@
 
 import { Suspense, useEffect } from 'react';
+import { useTheme } from '@/contexts/ThemeContext';
 import Navbar from '@/components/portfolio/Navbar';
 import HeroSection from '@/components/portfolio/HeroSection';
 import AboutSection from '@/components/portfolio/AboutSection';
@@ -12,13 +13,15 @@ import Footer from '@/components/portfolio/Footer';
 import HeroCanvas from '@/components/3d/HeroCanvas';
 
 const Index = () => {
+  const { theme } = useTheme();
+  
   useEffect(() => {
     // Update document title
     document.title = "Nilesh Yadav | Full Stack Developer";
   }, []);
 
   return (
-    <div className="min-h-screen bg-portfolio-dark text-portfolio-light relative">
+    <div className={`min-h-screen relative ${theme === 'light' ? 'bg-gray-50' : 'bg-portfolio-dark'}`}>
       <HeroCanvas />
       
       <div className="relative z-10">

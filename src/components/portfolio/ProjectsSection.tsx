@@ -2,8 +2,6 @@
 import { useState } from 'react';
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { GithubIcon, LinkIcon } from 'lucide-react';
 
 const projects = [
   {
@@ -12,8 +10,6 @@ const projects = [
     description: "Implemented secure payment processing system using Stripe and Razorpay with .NET Core backend.",
     image: "/placeholder.svg",
     tags: ["C#", ".NET Core", "API", "Payment", "Security"],
-    github: "https://github.com/nil-01",
-    demo: null
   },
   {
     id: 2,
@@ -21,8 +17,6 @@ const projects = [
     description: "Developed predictive analytics system using AI models to enhance user experience and provide personalized recommendations.",
     image: "/placeholder.svg",
     tags: ["AI", "Hugging Face", "Python", ".NET", "Data Analytics"],
-    github: "https://github.com/nil-01",
-    demo: null
   },
   {
     id: 3,
@@ -30,8 +24,6 @@ const projects = [
     description: "Designed and implemented a microservice architecture with message queuing for high-performance distributed systems.",
     image: "/placeholder.svg",
     tags: ["Microservices", "RabbitMQ", "Docker", ".NET Core", "API"],
-    github: "https://github.com/nil-01",
-    demo: null
   },
   {
     id: 4,
@@ -39,8 +31,6 @@ const projects = [
     description: "Built real-time collaboration features using SignalR and Angular for seamless team communication.",
     image: "/placeholder.svg",
     tags: ["SignalR", "Angular", ".NET Core", "Real-time", "WebSockets"],
-    github: "https://github.com/nil-01",
-    demo: null
   }
 ];
 
@@ -63,26 +53,6 @@ const ProjectCard = ({ project }: { project: typeof projects[0] }) => (
         ))}
       </div>
     </CardContent>
-    
-    <CardFooter className="flex justify-between border-t border-portfolio-primary/10 py-3 bg-portfolio-primary/5">
-      {project.github && (
-        <a href={project.github} target="_blank" rel="noopener noreferrer">
-          <Button size="sm" variant="ghost" className="text-portfolio-light/80 hover:text-portfolio-primary">
-            <GithubIcon className="mr-2 h-4 w-4" />
-            Code
-          </Button>
-        </a>
-      )}
-      
-      {project.demo && (
-        <a href={project.demo} target="_blank" rel="noopener noreferrer">
-          <Button size="sm" variant="ghost" className="text-portfolio-light/80 hover:text-portfolio-primary">
-            <LinkIcon className="mr-2 h-4 w-4" />
-            Live Demo
-          </Button>
-        </a>
-      )}
-    </CardFooter>
   </Card>
 );
 
@@ -100,13 +70,6 @@ const ProjectsSection = () => {
           {visibleProjects.map((project) => (
             <ProjectCard key={project.id} project={project} />
           ))}
-        </div>
-        
-        <div className="flex justify-center mt-12">
-          <Button variant="outline" className="border-portfolio-primary/50 hover:border-portfolio-primary">
-            <GithubIcon className="mr-2 h-4 w-4" />
-            View All Projects on GitHub
-          </Button>
         </div>
       </div>
     </section>

@@ -1,39 +1,72 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { ExternalLinkIcon } from "lucide-react";
 
 const certifications = [
   {
     id: 1,
-    title: "Google Cloud Essential Skills",
-    issuer: "Google Developer",
+    title: "Google Cloud Essentials",
+    issuer: "Google Cloud",
     date: "2023",
-    link: "https://g.dev/nil_0_1",
+    link: "https://www.cloudskillsboost.google/public_profiles/6b19d986-db7e-4ab0-ae73-4603449ca423/badges/3880280",
     category: "Cloud"
   },
   {
     id: 2,
-    title: "Microsoft Certified: Azure Developer Associate",
-    issuer: "Microsoft",
+    title: "Create and Manage Cloud Resources",
+    issuer: "Google Cloud",
     date: "2023",
-    link: "https://www.credly.com/users/nilesh-yadav-cse",
+    link: "https://www.cloudskillsboost.google/public_profiles/6b19d986-db7e-4ab0-ae73-4603449ca423/badges/3898056",
     category: "Cloud"
   },
   {
     id: 3,
-    title: "Angular Development",
-    issuer: "Shaligram Infotech",
+    title: "Perform Foundational Infrastructure Tasks",
+    issuer: "Google Cloud",
     date: "2023",
-    link: "#",
-    category: "Web"
+    link: "https://www.cloudskillsboost.google/public_profiles/6b19d986-db7e-4ab0-ae73-4603449ca423/badges/3904818",
+    category: "Cloud"
   },
   {
     id: 4,
-    title: ".NET Core Development",
-    issuer: "Shaligram Infotech",
+    title: "Automating Infrastructure on Google Cloud",
+    issuer: "Google Cloud",
     date: "2023",
-    link: "#",
-    category: "Backend"
+    link: "https://www.cloudskillsboost.google/public_profiles/6b19d986-db7e-4ab0-ae73-4603449ca423/badges/4019303",
+    category: "Cloud"
+  },
+  {
+    id: 5,
+    title: "Reliable Cloud Infrastructure: Design and Process",
+    issuer: "Google Cloud",
+    date: "2023",
+    link: "https://www.cloudskillsboost.google/public_profiles/6b19d986-db7e-4ab0-ae73-4603449ca423/badges/4409131",
+    category: "Cloud"
+  },
+  {
+    id: 6,
+    title: "Microsoft Azure AI Fundamentals",
+    issuer: "Microsoft",
+    date: "2023",
+    link: "https://www.credly.com/badges/1873e965-3054-4759-97e7-b6f1e278c0a5",
+    category: "AI"
+  },
+  {
+    id: 7,
+    title: "Microsoft Certified: Azure Developer Associate",
+    issuer: "Microsoft",
+    date: "2022",
+    link: "https://www.credly.com/earner/earned/badge/7492b2bc-cb64-47c0-b886-ec725e3fa3fd",
+    category: "Cloud"
+  },
+  {
+    id: 8,
+    title: "Microsoft Certified: Azure Fundamentals",
+    issuer: "Microsoft",
+    date: "2022",
+    link: "https://www.credly.com/badges/c66a0494-41de-4dc4-a696-94ff48eda1ab",
+    category: "Cloud"
   }
 ];
 
@@ -48,7 +81,10 @@ const CertificationCard = ({ cert }: { cert: typeof certifications[0] }) => (
       <CardContent className="p-5">
         <div className="flex justify-between items-start">
           <div>
-            <h3 className="font-semibold text-lg text-portfolio-primary">{cert.title}</h3>
+            <div className="flex items-center gap-1">
+              <h3 className="font-semibold text-lg text-portfolio-primary">{cert.title}</h3>
+              <ExternalLinkIcon className="h-3 w-3 text-portfolio-light/50" />
+            </div>
             <p className="text-sm text-portfolio-light/70">{cert.issuer} • {cert.date}</p>
           </div>
           <Badge 
@@ -56,6 +92,7 @@ const CertificationCard = ({ cert }: { cert: typeof certifications[0] }) => (
             className={`
               ${cert.category === 'Cloud' ? 'bg-portfolio-accent/10 text-portfolio-accent border-portfolio-accent/30' :
                 cert.category === 'Web' ? 'bg-portfolio-secondary/10 text-portfolio-secondary border-portfolio-secondary/30' :
+                cert.category === 'AI' ? 'bg-green-500/10 text-green-500 border-green-500/30' :
                 'bg-portfolio-primary/10 text-portfolio-primary border-portfolio-primary/30'}
             `}
           >

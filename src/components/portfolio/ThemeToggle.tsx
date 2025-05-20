@@ -7,7 +7,7 @@ const ThemeToggle = () => {
   const { theme, toggleTheme } = useTheme();
   
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-2 bg-portfolio-primary/10 dark:bg-portfolio-primary/20 rounded-full px-3 py-1">
       <SunIcon className={`h-4 w-4 ${theme === 'light' ? 'text-yellow-500' : 'text-portfolio-light/50'}`} />
       <Switch 
         checked={theme === 'dark'} 

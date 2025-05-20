@@ -48,7 +48,7 @@ const FloatingSkillIcon = ({
   });
 
   return (
-    <group ref={groupRef} position={position} scale={[scale, scale, scale]}>
+    <group ref={groupRef as any} position={position} scale={[scale, scale, scale]}>
       <Text
         fontSize={0.3}
         color={color}

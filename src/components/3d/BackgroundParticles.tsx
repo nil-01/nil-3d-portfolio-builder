@@ -66,7 +66,7 @@ const BackgroundParticles = ({ count = 500 }) => {
   });
   
   return (
-    <points ref={mesh} geometry={particlesGeometry}>
+    <points ref={mesh as any} geometry={particlesGeometry as any}>
       <pointsMaterial 
         size={0.05} 
         vertexColors 

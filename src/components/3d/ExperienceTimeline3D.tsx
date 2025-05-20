@@ -27,7 +27,7 @@ const TimelineNode = ({ position, date, title, active = false }: TimelineNodePro
   });
   
   return (
-    <group ref={groupRef} position={position}>
+    <group ref={groupRef as any} position={position}>
       <mesh>
         <sphereGeometry args={[0.1, 16, 16]} />
         <meshStandardMaterial 

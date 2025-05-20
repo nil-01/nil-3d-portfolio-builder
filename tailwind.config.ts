@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,6 +62,14 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
+				},
+				portfolio: {
+					dark: '#121212',
+					primary: '#8B5CF6',
+					secondary: '#D946EF',
+					accent: '#0EA5E9',
+					light: '#F9FAFB',
+					muted: '#374151'
 				}
 			},
 			borderRadius: {
@@ -84,11 +93,33 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'float': {
+					'0%, 100%': {
+						transform: 'translateY(0)'
+					},
+					'50%': {
+						transform: 'translateY(-10px)'
+					}
+				},
+				'pulse-light': {
+					'0%, 100%': {
+						opacity: '0.6'
+					},
+					'50%': {
+						opacity: '0.9'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'float': 'float 6s ease-in-out infinite',
+				'pulse-light': 'pulse-light 4s ease-in-out infinite'
+			},
+			fontFamily: {
+				'sans': ['Inter', 'sans-serif'],
+				'display': ['Montserrat', 'sans-serif']
 			}
 		}
 	},
